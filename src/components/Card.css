@@ -1,29 +1,58 @@
 #root {
-    display: flex;
-    justify-content: center;
     width: 100vw;
     min-height: 100vh;
-    overflow: hidden;
-    background-color: #f0f0f0;
+    background-color: #FAF0E6;
+}
+
+.App {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    border-color: black;
+    border-style: solid;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.right_side {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bottom_right {
+    display: flex;
+    flex-direction: row;
+}
+
+.infoContainer {
+    background-color: white;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
 }
 
 * {
     user-select: none;
 }
 
-#root>div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-h2 {
-    color: #fff;
-}
-
 .swipe {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .cardContainer {
@@ -31,6 +60,7 @@ h2 {
     max-width: 400px;
     height: 500px;
     box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    margin: 20px;
 }
 
 .card {
@@ -38,33 +68,14 @@ h2 {
     background-color: #fff;
     width: 80vw;
     max-width: 400px;
-    height: 500px;
+    height: 600px;
     border-radius: 20px;
     background-size: cover;
     background-position: center;
     color: white;
-}
 
-.cardContent {
-    width: 100%;
-    height: 100%;
-}
-
-.infoText {
-    width: 100%;
-    justify-content: center;
     display: flex;
-    color: black;
-    animation-name: popup;
-    animation-duration: 800ms;
-}
-
-.infoContainer {
-    background-color: black;
-    color: white
-}
-
-.chatContainer {
-    background-color: lightblue;
-    color: white
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
 }
