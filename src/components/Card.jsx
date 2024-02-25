@@ -14,6 +14,7 @@ const headers = {
 
 const Card = () => {
     const [cats, setCats] = useState([])
+    const [lastDirection, setLastDirection] = useState()
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -28,20 +29,39 @@ const Card = () => {
         fetchImages();
     }, []);
 
+    const swiped = (direction, catId) => {
+        setLastDirection(direction)
+        setCats(cats.filter(cat => cat.id!== catId))
+        console.log(cats.length)
+    }
+    
+
     const outOfFrame = (name) => {
         console.log(name + ' left the screen!')
+    }
+
+    {
+        if (cats.length === 0){ // no more cats to display
+            return (
+                <div>
+                    <h1>No more cats to display</h1>
+                </div>
+            )
+        }
+
     }
 
     return (
         <div>
             <div className='cardContainer'>
                 {cats.map((cat) =>
-                    <TinderCard className='swipe' key={cat.id} onCardLeftScreen={() => outOfFrame(cat.id)}>
+                    <TinderCard className='swipe' key={cat.id} onSwipe={(dir) => swiped(dir, cat.id)} onCardLeftScreen={() => outOfFrame(cat.id)}>
                         <div style={{ backgroundImage: 'url(' + cat.url + ')' }} className='card'>
                             <h3>Jimmy</h3>
                         </div>
                     </TinderCard>
                 )}
+                {console.log(cats)}
             </div>
         </div>
     )
