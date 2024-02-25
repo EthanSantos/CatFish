@@ -1,52 +1,33 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import axios from "axios"
 
 import TinderCard from 'react-tinder-card'
 
 import "./Card.css"
 
-const db = [
-    {
-        name: 'Cat1',
-        url: ''
-    },
-    {
-        name: 'Cat2',
-        url: ''
-    },
-    {
-        name: 'Cat3',
-        url: ''
-    },
-    {
-        name: 'Cat4',
-        url: ''
-    },
-    {
-        name: 'Cat5',
-        url: ''
-    },
-]
+const apiKey = 'live_7WuvcHp9i8PCrYX8TCCjLBTGWBYrBePyokoKu6MsumLbGCxNoo1EsgCggF5fcrBg';
+const apiUrl = 'https://api.thecatapi.com/v1/images/search?limit=50';
+
+const headers = {
+    'x-api-key': apiKey
+};
 
 const Card = () => {
-    const characters = db
     const [lastDirection, setLastDirection] = useState()
+    const [cats, setCats] = useState([])
 
     useEffect(() => {
-        let cancel
-        axios.get(`https://api.rescuegroups.org/http/v2.json`, { // decode json
-            cancelToken: new axios.CancelToken(c => cancel = c)
-        }).then(res => {
-            console.log(res.data)
-        }).catch(error => {
-            if (!axios.isCancel(error)) {
-                console.error("Error fetching data: ", error);
+        const fetchImages = async () => {
+            try {
+                const response = await axios.get(apiUrl, { headers });
+                setCats(response.data);
+            } catch (error) {
+                console.error('Error occurred:', error.response.data);
             }
-        });
+        };
 
-        return () => cancel()
-
-    }, [])
+        fetchImages();
+    }, []);
 
     const swiped = (direction, nameToDelete) => {
         console.log('removing: ' + nameToDelete)
@@ -60,15 +41,15 @@ const Card = () => {
     return (
         <div>
             <div className='cardContainer'>
-                {characters.map((character) =>
-                    <TinderCard className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
-                        <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
-                            <h3>{character.name}</h3>
+                {cats.map((cat) =>
+                    <TinderCard className='swipe' key={cat.id} onSwipe={(dir) => swiped(dir, cat.id)} onCardLeftScreen={() => outOfFrame(cat.id)}>
+                        <div style={{ backgroundImage: 'url(' + cat.url + ')' }} className='card'>
+                            <h3>{cat.id}</h3>
                         </div>
                     </TinderCard>
                 )}
             </div>
-            {lastDirection ? <h2 className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText' />} 
+            {lastDirection ? <h2 className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText' />}
         </div>
     )
 }
