@@ -1,21 +1,40 @@
 #root {
-    display: flex;
-    justify-content: left;
     width: 100vw;
     min-height: 100vh;
-    overflow: hidden;
     background-color: #FAF0E6;
+}
+
+.App {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    border-color: black;
+    border-style: solid;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.right_side {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bottom_right {
+    display: flex;
+    flex-direction: row;
+}
+
+.infoContainer {
+    background-color: white;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
 }
 
 * {
     user-select: none;
-}
-
-#root>div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .swipe {
@@ -30,10 +49,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-color: black;
-    border-style: solid;
+
     font-family: 'Roboto';
-    font-weight: medium;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .cardContainer {
@@ -41,8 +60,7 @@
     max-width: 400px;
     height: 500px;
     box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
-    border-color: black;
-    border-style: solid;
+    margin: 20px;
 }
 
 .card {
@@ -55,9 +73,9 @@
     background-size: cover;
     background-position: center;
     color: white;
-}
 
-.cardContent {
-    width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
 }

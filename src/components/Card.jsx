@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import TinderCard from "react-tinder-card";
-import "./Card.css";
-
 const apiKey =
   "live_7WuvcHp9i8PCrYX8TCCjLBTGWBYrBePyokoKu6MsumLbGCxNoo1EsgCggF5fcrBg";
 const apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10";
