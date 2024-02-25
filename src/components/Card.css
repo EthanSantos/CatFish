@@ -1,5 +1,4 @@
 #root {
-    text-align: center;
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -17,25 +16,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.app {
-    overflow: hidden;
-}
-
-.app>div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.row {
-    flex-direction: row !important;
-}
-
-.row>* {
-    margin: 5px;
 }
 
 h2 {
@@ -79,48 +59,12 @@ h2 {
     animation-duration: 800ms;
 }
 
-.buttons {
-    margin: 20px;
-    display: flex;
-    flex-wrap: wrap;
+.infoContainer {
+    background-color: black;
+    color: white
 }
 
-@media (max-width: 625px) {
-    .buttons {
-        flex-direction: column;
-    }
-}
-
-.buttons button:hover {
-    transform: scale(1.05);
-}
-
-@keyframes popup {
-    0% {
-        transform: scale(1, 1)
-    }
-
-    10% {
-        transform: scale(1.1, 1.1)
-    }
-
-    30% {
-        transform: scale(.9, .9)
-    }
-
-    50% {
-        transform: scale(1, 1)
-    }
-
-    57% {
-        transform: scale(1, 1)
-    }
-
-    64% {
-        transform: scale(1, 1)
-    }
-
-    100% {
-        transform: scale(1, 1)
-    }
+.chatContainer {
+    background-color: lightblue;
+    color: white
 }
