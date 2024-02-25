@@ -12,6 +12,7 @@ const headers = {
 const Card = () => {
     const [cats, setCats] = useState([])
     const [lastDirection, setLastDirection] = useState()
+    const [likedCats, setLikedCats] = useState([])
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -26,21 +27,25 @@ const Card = () => {
         fetchImages();
     }, []);
 
-    const swiped = (direction, catId) => {
+    const swiped = (direction, swipedCat) => {
         setLastDirection(direction)
-        setCats(cats.filter(cat => cat.id !== catId))
-        console.log(cats.length)
+        if (direction == "right"){
+            // add it to the array of cats that are liked
+            setLikedCats(likedCats.concat({id: swipedCat.id, url: swipedCat.url}))
+        }
+        setCats(cats.filter(cat => cat.id !== swipedCat.id)) // remove cat 
+        console.log(likedCats)
     }
 
     const outOfFrame = (name) => {
-        console.log(name + ' left the screen!')
+        console.log(name + ' left the screen!') // fully deleted
     }
 
     {
         if (cats.length === 0) { // no more cats to display
             return (
                 <div>
-                    <h1>No more cats to display</h1>
+                    <h1>No more cats to display!</h1>
                 </div>
             )
         }
@@ -51,13 +56,12 @@ const Card = () => {
         <div>
             <div className='cardContainer'>
                 {cats.map((cat) =>
-                    <TinderCard className='swipe' key={cat.id} onSwipe={(dir) => swiped(dir, cat.id)} onCardLeftScreen={() => outOfFrame(cat.id)}>
+                    <TinderCard className='swipe' key={cat.id} onSwipe={(dir) => swiped(dir, cat)} onCardLeftScreen={() => outOfFrame(cat.id)}>
                         <div style={{ backgroundImage: 'url(' + cat.url + ')' }} className='card'>
                             <h3>Jimmy</h3>
                         </div>
                     </TinderCard>
                 )}
-                {console.log(cats)}
             </div>
         </div>
     )
