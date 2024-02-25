@@ -1,40 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import TinderCard from "react-tinder-card";
-const apiKey =
-    "live_7WuvcHp9i8PCrYX8TCCjLBTGWBYrBePyokoKu6MsumLbGCxNoo1EsgCggF5fcrBg";
-const apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10";
-
-const headers = {
-    "x-api-key": apiKey,
-};
+import { useCats } from './CatsProvider';
 
 const Card = () => {
-    const [cats, setCats] = useState([])
-    const [lastDirection, setLastDirection] = useState()
-    const [likedCats, setLikedCats] = useState([])
-
-    useEffect(() => {
-        const fetchImages = async () => {
-            try {
-                const response = await axios.get(apiUrl, { headers });
-                setCats(response.data);
-            } catch (error) {
-                console.error("Error occurred:", error.response.data);
-            }
-        };
-
-        fetchImages();
-    }, []);
+    const { cats, likedCats, lastDirection, handleSwipe } = useCats();
 
     const swiped = (direction, swipedCat) => {
-        setLastDirection(direction)
-        if (direction == "right"){
-            // add it to the array of cats that are liked
-            setLikedCats(likedCats.concat({id: swipedCat.id, url: swipedCat.url}))
-        }
-        setCats(cats.filter(cat => cat.id !== swipedCat.id)) // remove cat 
-        console.log(likedCats)
+        handleSwipe(direction, swipedCat);
     }
 
     const outOfFrame = (name) => {
