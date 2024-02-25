@@ -11,6 +11,8 @@ const headers = {
 
 const Card = () => {
   const [cats, setCats] = useState([]);
+  const [lastDirection, setLastDirection] = useState();
+  const [likedCats, setLikedCats] = useState([]);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -25,9 +27,30 @@ const Card = () => {
     fetchImages();
   }, []);
 
-  const outOfFrame = (name) => {
-    console.log(name + " left the screen!");
+  const swiped = (direction, swipedCat) => {
+    setLastDirection(direction);
+    if (direction == "right") {
+      // add it to the array of cats that are liked
+      setLikedCats(likedCats.concat({ id: swipedCat.id, url: swipedCat.url }));
+    }
+    setCats(cats.filter((cat) => cat.id !== swipedCat.id)); // remove cat
+    console.log(likedCats);
   };
+
+  const outOfFrame = (name) => {
+    console.log(name + " left the screen!"); // fully deleted
+  };
+
+  {
+    if (cats.length === 0) {
+      // no more cats to display
+      return (
+        <div>
+          <h1>No more cats to display!</h1>
+        </div>
+      );
+    }
+  }
 
   return (
     <div>
@@ -36,6 +59,7 @@ const Card = () => {
           <TinderCard
             className="swipe"
             key={cat.id}
+            onSwipe={(dir) => swiped(dir, cat)}
             onCardLeftScreen={() => outOfFrame(cat.id)}
           >
             <div
@@ -43,8 +67,8 @@ const Card = () => {
               className="card"
             >
               <div className="card-info">
-                <div className="name">Jimmy</div>
-                <div className="title">Persian Cat @ Dancing Cat</div>
+                <div> Jimmy </div>
+                <div> Sphynx Cat @ Dancing Cat</div>
               </div>
             </div>
           </TinderCard>
