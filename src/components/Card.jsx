@@ -40,7 +40,7 @@ const Card = () => {
               className="card"
             >
               <div className="card-info">
-                <div> Jimmy </div>
+                <div> {names[Math.floor(Math.random() * names.length)]} </div>
                 <div> Cat @ Dancing Cat</div>
               </div>
             </div>
