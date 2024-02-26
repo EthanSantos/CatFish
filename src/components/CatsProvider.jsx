@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const CatsContext = createContext();
 
-
 const apiKey =
     "live_7WuvcHp9i8PCrYX8TCCjLBTGWBYrBePyokoKu6MsumLbGCxNoo1EsgCggF5fcrBg";
 const apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10";
