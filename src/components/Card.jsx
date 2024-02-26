@@ -41,15 +41,11 @@ const Card = () => {
     console.log(name + " left the screen!"); // fully deleted
   };
 
-  {
-    if (cats.length === 0) {
-      // no more cats to display
-      return (
-        <div>
-          <h1>No more cats to display!</h1>
-        </div>
-      );
-    }
+  if (cats.length === 0) {
+    // no more cats to display
+    return (
+      <div className="no-more-cats cardContainer">No more cats to display!</div>
+    );
   }
 
   return (

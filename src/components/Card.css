@@ -68,6 +68,13 @@
     user-select: none;
 }
 
+.no-more-cats {
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+
 .swipe {
     position: absolute;
     display: flex;
