@@ -16,9 +16,7 @@ const Card = () => {
 
   if (cats.length === 0) {
     // no more cats to display
-    return (
-      <div className="no-more-cats cardContainer">No more cats to display!</div>
-    );
+    return <div className="no-more-cats cardContainer"></div>;
   }
 
   return (
@@ -37,7 +35,7 @@ const Card = () => {
             >
               <div className="card-info">
                 <div> Jimmy </div>
-                <div> Sphynx Cat @ Dancing Cat</div>
+                <div> Cat @ Dancing Cat</div>
               </div>
             </div>
           </TinderCard>
