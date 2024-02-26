@@ -4,19 +4,19 @@ import Information from "./components/Information";
 import Chat from "./components/Chat";
 import Links from "./components/Links";
 import "./components/Card.css";
-import { CatsProvider } from './components/CatsProvider';
+import { CatsProvider } from "./components/CatsProvider";
 import DisplayCats from "./components/DisplayCats";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("MainPage")
+  const [currentPage, setCurrentPage] = useState("MainPage");
 
   function loadCats() {
-    console.log("Catz")
-    setCurrentPage("LikedCats")
+    console.log("Catz");
+    setCurrentPage("LikedCats");
   }
 
   function loadMain() {
-    setCurrentPage("MainPage")
+    setCurrentPage("MainPage");
   }
 
   return (
@@ -29,8 +29,7 @@ function App() {
               <Information />
               <div className="bottom_right">
                 <Chat />
-                <Links />
-                <button onClick={loadCats}>Load Liked Cats</button>
+                <Links onClick={loadCats} />
               </div>
             </div>
           </>

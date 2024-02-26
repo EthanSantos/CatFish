@@ -9,7 +9,9 @@ const Chat = () => {
         <div className="left-message">Meow Meow Pls Adopt!</div>
         <div className="right-message">Okay, anything for you</div>
       </div>
-      <div className="lower-chat"></div>
+      <div>
+        <input className="text-box" placeholder="Talk to kitty" type="text" />
+      </div>
     </div>
   );
 };
