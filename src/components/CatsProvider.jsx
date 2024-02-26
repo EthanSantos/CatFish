@@ -11,6 +11,10 @@ const headers = {
     "x-api-key": apiKey,
 };
 
+var corsOptions = {
+    origin: "http://localhost:8081"
+  };
+
 export const CatsProvider = ({ children }) => {
     const [cats, setCats] = useState([]);
     const [lastDirection, setLastDirection] = useState();
@@ -29,10 +33,37 @@ export const CatsProvider = ({ children }) => {
         fetchImages();
     }, []);
 
-    const handleSwipe = (direction, swipedCat) => {
+    const handleSwipe = async (direction, swipedCat) => {
         setLastDirection(direction);
-        if (direction === "right") {
+        console.log(direction) 
+        if (direction == "right") {
+            console.log("SHITT")
             setLikedCats(prevLikedCats => prevLikedCats.concat({ id: swipedCat.id, url: swipedCat.url }));
+            
+            //==============================================================================================
+            let data = JSON.stringify({
+                "name": swipedCat.id,
+                "image_link": swipedCat.url
+            });
+
+            let config = {
+                mode: "cors", // no-cors, *cors, same-origin
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json', 
+                    'qG4ausv2': ''
+                },
+                body : data
+            };
+            console.log(fetch('http://localhost:8080/cat_info/', config)
+            .then(r=>r.text())
+            .then((response) => {
+            console.log(response)
+            })
+            .catch((error) => {
+            console.log(error);
+            }));
+            //==============================================================================================
         }
         setCats(cats.filter(cat => cat.id !== swipedCat.id));
         console.log(likedCats);
