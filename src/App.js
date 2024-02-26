@@ -5,6 +5,7 @@ import Chat from "./components/Chat";
 import Links from "./components/Links";
 import "./components/Card.css";
 import { CatsProvider } from './components/CatsProvider';
+import DisplayCats from "./components/DisplayCats";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("MainPage")
@@ -34,7 +35,10 @@ function App() {
             </div>
           </>
         ) : (
-          <button onClick={loadMain}>Back to Main</button>
+          <div>
+            <DisplayCats />
+            <button onClick={loadMain}>Back to Main</button>
+          </div>
         )}
       </div>
     </CatsProvider>
