@@ -9,35 +9,49 @@ const Card = () => {
     const swiped = (direction, swipedCat) => {
         handleSwipe(direction, swipedCat);
     }
+    setCats(cats.filter((cat) => cat.id !== swipedCat.id)); // remove cat
+    console.log(likedCats);
+  };
 
-    const outOfFrame = (name) => {
-        console.log(name + ' left the screen!') // fully deleted
-    }
+  const outOfFrame = (name) => {
+    console.log(name + " left the screen!"); // fully deleted
+  };
 
-    {
-        if (cats.length === 0) { // no more cats to display
-            return (
-                <div>
-                    <h1>No more cats to display!</h1>
-                </div>
-            )
-        }
-
-    }
-
-    return (
+  {
+    if (cats.length === 0) {
+      // no more cats to display
+      return (
         <div>
-            <div className='cardContainer'>
-                {cats.map((cat) =>
-                    <TinderCard className='swipe' key={cat.id} onSwipe={(dir) => swiped(dir, cat)} onCardLeftScreen={() => outOfFrame(cat.id)}>
-                        <div style={{ backgroundImage: 'url(' + cat.url + ')' }} className='card'>
-                            <h3>Jimmy</h3>
-                        </div>
-                    </TinderCard>
-                )}
-            </div>
+          <h1>No more cats to display!</h1>
         </div>
-    )
+      );
+    }
+  }
+
+  return (
+    <div>
+      <div className="cardContainer">
+        {cats.map((cat) => (
+          <TinderCard
+            className="swipe"
+            key={cat.id}
+            onSwipe={(dir) => swiped(dir, cat)}
+            onCardLeftScreen={() => outOfFrame(cat.id)}
+          >
+            <div
+              style={{ backgroundImage: "url(" + cat.url + ")" }}
+              className="card"
+            >
+              <div className="card-info">
+                <div> Jimmy </div>
+                <div> Sphynx Cat @ Dancing Cat</div>
+              </div>
+            </div>
+          </TinderCard>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Card;
