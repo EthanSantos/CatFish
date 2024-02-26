@@ -63,9 +63,13 @@
 .chatContainer {
     background-color: white;
     width: 500px;
+    width: 500px;
     border-radius: 10px;
     text-align: center;
     height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -100,6 +104,13 @@
     text-align: center;
 }
 
+.no-more-cats {
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+
 .swipe {
     position: absolute;
     display: flex;
@@ -125,6 +136,43 @@
     box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
     margin: 20px;
     margin-bottom: 150px;
+}
+
+.cardContainer:hover {
+    transform: scale(1.02);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.3s ease 0s;
+}
+
+.upper-chat {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.text-box {
+    width: 350px;
+    height: 30px;
+    border-radius: 10px;
+    border-color: #D6CCC2;
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+}
+
+.right-message {
+    align-self: flex-end;
+    background-color: #5FC9F8;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.left-message {
+    align-self: flex-start;
+    background-color: #ECECEC;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .cardContainer:hover {
@@ -213,6 +261,22 @@
     font-family: 'Roboto';
     font-weight: bold;
     font-size: 25px;
+    height: 160px;
+    width: 300px;
+
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 15px;
+
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .grid-item:hover {
@@ -221,6 +285,16 @@
     transition: all 0.3s ease 0s;
 }
 
+.fav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.go-back-btn {
+    margin-top: 30px;
+}
 .fav-container {
     display: flex;
     flex-direction: column;
