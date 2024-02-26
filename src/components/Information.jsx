@@ -1,26 +1,20 @@
 import React from "react";
 
-const Information = () => {
+const Information = ({ descriptions }) => {
+  const rand = Math.floor(Math.random() * 3);
+  const age = descriptions[rand].Age;
+  const breed = descriptions[rand].Breed;
+  const prefer = descriptions[rand].PreferredActivities;
+  const about = descriptions[rand].About;
+  const ideal = descriptions[rand].IdealHome;
+
   return (
     <div className="infoContainer">
-      <div>Age: 9 years young</div>
-      <div>Breed: Sphynx</div>
-      <div>
-        Preferred Activities: Carpet Connoisseur, Playtime Pro, Cuddling Expert
-      </div>
-      <div>
-        About: Jimmy, the sphynx cat, is ready to bring a touch of elegance and
-        a whole lot of charm into your life. At 9 years young, Jimmy is the
-        epitome of feline sophistication, with a heart full of playfulness and a
-        love for the finer things—yes, that includes your comfiest carpet and
-        sofa!
-      </div>
-      <div>
-        Ideal Home: Jimmy is seeking a forever home filled with love, patience,
-        and a cozy spot for him to call his own. He'd thrive in a calm
-        environment where he can enjoy the finer things in life while feeling
-        secure in the company of his human companions.
-      </div>
+      <div>Age: {age}</div>
+      <div>Breed: {breed}</div>
+      <div>Preferred Activities: {prefer}</div>
+      <div>About: {about}</div>
+      <div>Ideal Home: {ideal}</div>
     </div>
   );
 };

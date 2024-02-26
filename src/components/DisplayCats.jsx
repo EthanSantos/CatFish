@@ -3,11 +3,11 @@ import CatGrid from './CatGrid'
 import { useCats } from './CatsProvider';
 
 const DisplayCats = () => {
-    const {likedCats} = useCats();
+    const {names, likedCats} = useCats();
     return (
         <div className="container">
           {likedCats.map(p => (
-                <CatGrid cat={p} />
+                <CatGrid cat={p} names = {names} />
             ))}
         </div>
     )

@@ -4,7 +4,7 @@ import TinderCard from "react-tinder-card";
 import { useCats } from './CatsProvider';
 
 const Card = () => {
-    const { cats, likedCats, lastDirection, handleSwipe } = useCats();
+    const { cats, names, likedCats, lastDirection, handleSwipe } = useCats();
 
     const swiped = (direction, swipedCat) => {
         handleSwipe(direction, swipedCat);
@@ -17,11 +17,7 @@ const Card = () => {
     {
         if (cats.length === 0) {
             // no more cats to display
-            return (
-                <div>
-                    <h1>No more cats to display!</h1>
-                </div>
-            );
+            return <div className="no-more-cats cardContainer"></div>;
         }
     }
 
@@ -40,8 +36,8 @@ const Card = () => {
                             className="card"
                         >
                             <div className="card-info">
-                                <div> Jimmy </div>
-                                <div> Sphynx Cat @ Dancing Cat</div>
+                                <div> {names[Math.floor(Math.random() * names.length)]} </div>
+                                <div> @ Dancing Cat</div>
                             </div>
                         </div>
                     </TinderCard>

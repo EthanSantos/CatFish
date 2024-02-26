@@ -1,16 +1,14 @@
-import React from 'react'
+import React from "react";
 
-const CatGrid = ({cat}) => {
-    return (
-        <div className="grid-item">
-            <h3 className="title">Name</h3>
-            <img
-                width={250}
-                height={250}
-                src={cat.url}
-            />
-        </div>
-    )
-}
+const CatGrid = ({ cat, names }) => {
+  return (
+    <div
+      className="grid-item"
+      style={{ backgroundImage: "url(" + cat.url + ")" }}
+    >
+      <div className="title">{names[Math.floor(Math.random() * names.length)]}</div>
+    </div>
+  );
+};
 
-export default CatGrid
+export default CatGrid;
