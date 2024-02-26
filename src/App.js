@@ -34,9 +34,11 @@ function App() {
             </div>
           </>
         ) : (
-          <div>
+          <div className="fav-container">
             <DisplayCats />
-            <button onClick={loadMain}>Back to Main</button>
+            <button className="go-back-btn button" onClick={loadMain}>
+              Back to Main
+            </button>
           </div>
         )}
       </div>

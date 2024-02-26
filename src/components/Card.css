@@ -185,10 +185,37 @@
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
     color: white;
     transition: transform 0.3s;
+    height: 160px;
+    width: 300px;
+
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 15px;
+
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .grid-item:hover {
     transform: scale(1.02);
     box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
     transition: all 0.3s ease 0s;
+}
+
+.fav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.go-back-btn {
+    margin-top: 30px;
 }
