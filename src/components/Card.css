@@ -102,6 +102,19 @@
     margin-bottom: 150px;
 }
 
+.upper-chat {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-message {
+    align-self: flex-start;
+}
+
+.left-message {
+    align-self: flex-end;
+}
+
 .card {
     position: relative;
     background-color: #fff;
