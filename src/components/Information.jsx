@@ -1,20 +1,18 @@
 import React from "react";
+import { useCats } from "./CatsProvider";
 
-const Information = ({ descriptions }) => {
-  const rand = Math.floor(Math.random() * 3);
-  const age = descriptions[rand].Age;
-  const breed = descriptions[rand].Breed;
-  const prefer = descriptions[rand].PreferredActivities;
-  const about = descriptions[rand].About;
-  const ideal = descriptions[rand].IdealHome;
+const Information = () => {
+  // update every time a new cat is changed
+
+  const { descriptions } = useCats();
 
   return (
     <div className="infoContainer">
-      <div>Age: {age}</div>
-      <div>Breed: {breed}</div>
-      <div>Preferred Activities: {prefer}</div>
-      <div>About: {about}</div>
-      <div>Ideal Home: {ideal}</div>
+      <div>Age: {descriptions.age}</div>
+      <div>Breed: {descriptions.breed}</div>
+      <div>Preferred Activities: {descriptions.prefer}</div>
+      <div>About: {descriptions.about}</div>
+      <div>Ideal Home: {descriptions.ideal}</div>
     </div>
   );
 };
