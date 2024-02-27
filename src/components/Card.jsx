@@ -17,7 +17,7 @@ const Card = () => {
     {
         if (cats.length === 0) {
             // no more cats to display
-            return <div className="no-more-cats cardContainer">No more cats left!</div>;
+            return <div className="no-more-cats">No more cats left!</div>;
         }
     }
 
