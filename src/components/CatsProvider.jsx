@@ -3,13 +3,15 @@ import axios from 'axios';
 
 const CatsContext = createContext();
 
-const apiKey = process.env.API_KEY;
+const apiKey = "live_7WuvcHp9i8PCrYX8TCCjLBTGWBYrBePyokoKu6MsumLbGCxNoo1EsgCggF5fcrBg";
 const apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10";
+
 const headers = {
     "x-api-key": apiKey,
 };
+
 const nameApi = "https://randommer.io/api/Name"
-const nameKey = process.env.NAME_API_KEY;
+const nameKey = "ba34e3caa258415183cdf328e43cf635"
 
 const descriptionOptions = [
     {
