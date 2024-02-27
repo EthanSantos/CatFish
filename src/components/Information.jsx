@@ -8,11 +8,11 @@ const Information = () => {
 
   return (
     <div className="infoContainer">
-      <div>Age: {descriptions.age}</div>
-      <div>Breed: {descriptions.breed}</div>
-      <div>Preferred Activities: {descriptions.prefer}</div>
-      <div>About: {descriptions.about}</div>
-      <div>Ideal Home: {descriptions.ideal}</div>
+      <div><span style={{ fontWeight: 'bold' }}>Age:</span> {descriptions.age}</div>
+      <div><span style={{ fontWeight: 'bold' }}>Breed:</span>  {descriptions.breed}</div>
+      <div><span style={{ fontWeight: 'bold' }}>Preferred Activities:</span> {descriptions.prefer}</div>
+      <div><span style={{ fontWeight: 'bold' }}>About:</span> {descriptions.about}</div>
+      <div><span style={{ fontWeight: 'bold' }}>Ideal Home:</span> {descriptions.ideal}</div>
     </div>
   );
 };
